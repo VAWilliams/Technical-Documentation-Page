@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Documentation Page</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.0/angular.min.js"></script>
+</head>
+<body data-ng-app="documentation">
+
+        <nav id="navbar" data-ng-controller="navigationController">
+    
+            <header>
+                <h1>Python Documentation</h1>
+                <div id="nav-burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </header>
+            <ul id="nav-list">
+                <li data-ng-repeat="link in links">
+                    <a class="nav-link" href="{{ link.link }}" onclick="scrollToLink(event)">
+                        {{ link.text }}
+                    </a>
+                </li>
+            </ul>
+            
+        </nav>
+    
+        <main id="main-doc">
+    
+            <section class="main-section">
+                <header>
+                    <h1>Introduction</h1>
+                </header>
+                <p>
+                    Python is an easy to learn, powerful programming language. It has efficient high-level data structures
+                    and a
+                    simple but effective approach to object-oriented programming. Python’s elegant syntax and dynamic
+                    typing,
+                    together with its interpreted nature, make it an ideal language for scripting and rapid application
+                    development in many areas on most platforms.
+                </p>
+    
+                <p>
+                    The Python interpreter and the extensive standard library are freely available in source or binary form
+                    for
+                    all major platforms from the <a href="https://www.python.org/">Python Web site</a> and may be freely
+                    distributed. The
+                    same site also contains distributions of and pointers to many free third party Python modules, programs
+                    and
+                    tools, and additional documentation.
+                </p>
+    
+                <p>
+                    The Python interpreter is easily extended with new functions and data types implemented in C or C++ (or
+                    other languages callable from C). Python is also suitable as an extension language for customizable
+                    applications.
+                </p>
+            </section>
+    
+            <section class="main-section">
+                <header>
+                    <h1>Whetting Your Appetite</h1>
+                </header>
+                <p>
+                    If you do much work on computers, eventually you find that there’s some task you’d like to automate. For
+                    example, you may wish to perform a search-and-replace over a large number of text files, or rename and
+                    rearrange a bunch of photo files in a complicated way. Perhaps you’d like to write a small custom
+                    database,
+                    or a specialized GUI application, or a simple game.
+                </p>
+    
+                <p>
+                    If you’re a professional software developer, you may have to work with several C/C++/Java libraries but
+                    find
+                    the usual write/compile/test/re-compile cycle is too slow. Perhaps you’re writing a test suite for such
+                    a
+                    library and find writing the testing code a tedious task. Or maybe you’ve written a program that could
+                    use
+                    an extension language, and you don’t want to design and implement a whole new language for your
+                    application.
+                </p>
+    
+                <p>
+                    Python is just the language for you.
+                </p>
+            </section>
+    
+            <section class="main-section">
+                <header>
+                    <h1>An Informal Introduction to Python</h1>
+                </header>
+                <p>
+                    In the following examples, input and output are distinguished by the presence or absence of prompts (>>>
+                    and
+                    …): to repeat the example, you must type everything after the prompt, when the prompt appears; lines
+                    that do
+                    not begin with a prompt are output from the interpreter. Note that a secondary prompt on a line by
+                    itself in
+                    an example means you must type a blank line; this is used to end a multi-line command.
+                </p>
+    
+                <p>
+                    Many of the examples in this manual, even those entered at the interactive prompt, include comments.
+                    Comments in Python start with the hash character, #, and extend to the end of the physical line. A
+                    comment
+                    may appear at the start of a line or following whitespace or code, but not within a string literal. A
+                    hash
+                    character within a string literal is just a hash character. Since comments are to clarify code and are
+                    not
+                    interpreted by Python, they may be omitted when typing in examples.
+                </p>
+    
+                <p>
+                    Some examples:
+                </p>
+                <code>
+                    <pre>
+                        # this is the first comment
+                        spam = 1  # and this is the second comment
+                                # ... and now a third!
+                        text = "# This is not a comment because it's inside quotes."
+                    </pre>
+                </code>
+            </section>
+    
+            <section class="main-section">
+                <header>
+                    <h1>if Statements</h1>
+                </header>
+                <p>
+                    Perhaps the most well-known statement type is the if statement. For example:
+                </p>
+                <code>
+                    <pre>
+                        >>> x = int(input("Please enter an integer: "))
+                        Please enter an integer: 42
+                        >>> if x &lt; 0:
+                        ...     x = 0
+                        ...     print('Negative changed to zero')
+                        ... elif x == 0:
+                        ...     print('Zero')
+                        ... elif x == 1:
+                        ...     print('Single')
+                        ... else:
+                        ...     print('More')
+                        ...
+                        More
+                    </pre>
+                </code>
+            </section>
+    
+            <section class="main-section">
+                <header>
+                    <h1>Defining Functions</h1>
+                </header>
+                <p>
+                    We can create a function that writes the Fibonacci series to an arbitrary boundary:
+                </p>
+                <code>
+                    <pre>
+                        >>> def fib(n):    # write Fibonacci series up to n
+                        ...     """Print a Fibonacci series up to n."""
+                        ...     a, b = 0, 1
+                        ...     while a &lt; n:
+                        ...         print(a, end=' ')
+                        ...         a, b = b, a+b
+                        ...     print()
+                        ...
+                        >>> # Now call the function we just defined:
+                        ... fib(2000)
+                        0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597
+                    </pre>
+                </code>
+                <p>
+                    The keyword def introduces a function definition. It must be followed by the function name and the
+                    parenthesized list of formal parameters. The statements that form the body of the function start at the
+                    next
+                    line, and must be indented.
+                </p>
+    
+                <p>
+                    The first statement of the function body can optionally be a string literal; this string literal is the
+                    function’s documentation string, or docstring. (More about docstrings can be found in the section
+                    Documentation Strings.) There are tools which use docstrings to automatically produce online or printed
+                    documentation, or to let the user interactively browse through code; it’s good practice to include
+                    docstrings in code that you write, so make a habit of it.
+                </p>
+    
+                <p>
+                    The execution of a function introduces a new symbol table used for the local variables of the function.
+                    More
+                    precisely, all variable assignments in a function store the value in the local symbol table; whereas
+                    variable references first look in the local symbol table, then in the local symbol tables of enclosing
+                    functions, then in the global symbol table, and finally in the table of built-in names. Thus, global
+                    variables and variables of enclosing functions cannot be directly assigned a value within a function
+                    (unless, for global variables, named in a global statement, or, for variables of enclosing functions,
+                    named
+                    in a nonlocal statement), although they may be referenced.
+                </p>
+    
+                <p>
+                    The actual parameters (arguments) to a function call are introduced in the local symbol table of the
+                    called
+                    function when it is called; thus, arguments are passed using call by value (where the value is always an
+                    object reference, not the value of the object). 1 When a function calls another function, a new local
+                    symbol
+                    table is created for that call.
+                </p>
+    
+                <p>
+                    A function definition introduces the function name in the current symbol table. The value of the
+                    function
+                    name has a type that is recognized by the interpreter as a user-defined function. This value can be
+                    assigned
+                    to another name which can then also be used as a function. This serves as a general renaming mechanism:
+                </p>
+                <code>
+                    <pre>
+                        >>> fib
+                        &lt;function fib at 10042ed0&gt;
+                        >>> f = fib
+                        >>> f(100)
+                        0 1 1 2 3 5 8 13 21 34 55 89
+                    </pre>
+                </code>
+    
+                <p>
+                    Coming from other languages, you might object that fib is not a function but a procedure since it
+                    doesn’t
+                    return a value. In fact, even functions without a return statement do return a value, albeit a rather
+                    boring one. This value is called None (it’s a built-in name). Writing the value None is normally
+                    suppressed by the interpreter if it would be the only value written. You can see it if you really want
+                    to using print():
+                </p>
+                <code>
+                    <pre>
+                        >>> fib(0)
+                        >>> print(fib(0))
+                        None
+                    </pre>
+                </code>
+    
+                <p>
+                    It is simple to write a function that returns a list of the numbers of the Fibonacci series, instead of
+                    printing it:
+                </p>
+    
+                <code>
+                    <pre>
+                        >>> def fib2(n):  # return Fibonacci series up to n
+                        ...     """Return a list containing the Fibonacci series up to n."""
+                        ...     result = []
+                        ...     a, b = 0, 1
+                        ...     while a &lt; n:
+                        ...         result.append(a)    # see below
+                        ...         a, b = b, a+b
+                        ...     return result
+                        ...
+                        >>> f100 = fib2(100)    # call it
+                        >>> f100                # write the result
+                        [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+                    </pre>
+                </code>
+    
+                <p>
+                    This example, as usual, demonstrates some new Python features:
+                </p>
+    
+                <ul>
+                    <li>
+                        The return statement returns with a value from a function. return without an expression argument
+                        returns
+                        None. Falling off the end of a function also returns None.
+                    </li>
+    
+                    <li>
+                        The statement result.append(a) calls a method of the list object result. A method is a function that
+                        ‘belongs’ to an object and is named obj.methodname, where obj is some object (this may be an
+                        expression), and methodname is the name of a method that is defined by the object’s type. Different
+                        types define different methods. Methods of different types may have the same name without causing
+                        ambiguity. (It is possible to define your own object types and methods, using classes, see Classes)
+                        The
+                        method append() shown in the example is defined for list objects; it adds a new element at the end
+                        of
+                        the list. In this example it is equivalent to result = result + [a], but more efficient.
+                    </li>
+                </ul>
+            </section>
+    
+            <section class="main-section">
+                <header>
+                    <h1>More on Defining Functions</h1>
+                </header>
+                <p>
+                    It is also possible to define functions with a variable number of arguments. There are three forms,
+                    which can be combined.
+                </p>
+                <h3>Default Argument Values</h3>
+                <p>
+                    The most useful form is to specify a default value for one or more arguments. This creates a function
+                    that can be called with fewer arguments than it is defined to allow. For example:
+                </p>
+                <code>
+                    <pre>
+                        def ask_ok(prompt, retries=4, reminder='Please try again!'):
+                            while True:
+                                ok = input(prompt)
+                                if ok in ('y', 'ye', 'yes'):
+                                    return True
+                                if ok in ('n', 'no', 'nop', 'nope'):
+                                    return False
+                                retries = retries - 1
+                                if retries &lt; 0:
+                                    raise ValueError('invalid user response')
+                                print(reminder)
+                    </pre>
+                </code>
+                <p>
+                    This function can be called in several ways:
+                </p>
+                <ul>
+                    <li>
+                        giving only the mandatory argument: ask_ok('Do you really want to quit?')
+                    </li>
+                    <li>
+                        giving one of the optional arguments: ask_ok('OK to overwrite the file?', 2)
+                    </li>
+                    <li>
+                        or even giving all arguments: ask_ok('OK to overwrite the file?', 2, 'Come on, only yes or no!')
+                    </li>
+                </ul>
+            </section>
+    
+            <section class="main-section">
+                <header>
+                    <h1>Reference</h1>
+                </header>
+                <ul>
+                    <li>All the documentation in this page is taken from the <a href="https://docs.python.org/3/">Python Software Foundation</a>.</li>
+                </ul>
+            </section>
+    
+        </main>
+    
+        <script src="scripts/main.js"></script>
+</body>
+</html>

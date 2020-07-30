@@ -1,0 +1,109 @@
+
+body {
+    display: grid;
+    margin: 0;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+h1 { 
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, monospace, sans-serif;
+    font-weight: bolder;
+}
+
+#navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #1e1f26;
+    color: #c4c4c6;
+    box-shadow: 0 0 5px #ffdd40;
+}
+#navbar h1 {
+    width: 100%;
+}
+#navbar li, #navbar h1 {
+    padding: 15px 0;
+    margin: 0;
+}
+#navbar li {
+/*     border-bottom: 1px black solid; */
+}
+#navbar, #main-doc {
+    font-family: monospace, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 20px;
+}
+
+#nav-burger > span {
+    display: block;
+    margin: 5px 20px;
+    width: 30px;
+    height: 2px;
+    background-color: crimson;
+    border-radius: 30%;
+    border: 1px black solid;
+}
+#nav-burger {
+    cursor: pointer;
+}
+#navbar ul {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    right: 10px;
+    top: 100px;
+  background-color: #1e1f26;
+}
+#navbar ul li {
+    list-style: none;
+    padding: 10px 30px;
+    margin: 5px 0;
+    background-color: #1e1f26;
+    width: 200px;
+}
+#nav-list { display: none;}
+
+
+.nav-link {
+    font-size: large;
+}
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #ffdd40;
+    text-shadow: 0 0 1px #ffdd40;
+}
+#main-doc {
+  background-color: #1e1f26;
+  color: #c4c4c6;
+}
+
+pre {
+    background-color: #444857;
+    padding: 10px;
+    border-radius: 2px;
+    overflow-x: scroll;
+}
+
+
+@media (min-width: 600px) {
+    body { grid-template-columns: 300px 1fr; }
+    #nav-burger { display: none; }
+    #navbar, #main-doc { padding: 30px; }
+    #navbar li {
+        border: none !important;
+/*         border-bottom: 1px #fff solid !important; */
+    }
+    #nav-list { 
+        display: block !important;
+        position: sticky !important;
+        top: 0 !important;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        background-color: white;
+    }
+    #nav-list li { display: block !important; }
+}
